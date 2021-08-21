@@ -10,27 +10,44 @@
   </head>
 <body id="root">
   <header>
-    <div id="score-link">View Highscores</div>
-    <div id="timer">Time</div>  
+    <button id="score-link">View Highscores</button>
+    <div id="timer">Time Left: <span id='time-left'>0</span></div>  
   </header>
 
   <div id="main-container">
-    <h2 id="title">Coding Quiz Challenge</h2>
-    <button class="quiz-start">Start Quiz</button>
-    <section class="question-section">
-      <h3 id="question-text">Question</h3>
-      <ol class="answers-list">
-        <li><button>answer1</button></li>
-        <li><button>answer2</button></li>
-        <li><button>answer3</button></li>
-        <li><button>answer4</button></li>
-      </ol>
-      <h4 class="answer-result">Result</h4>
-    </section>
-    <section>
-      <h4>Highscores</h4>
-      <ol id="scores"></ol>
-    </section>
+    <div id = 'welcome-div'>
+      <h2 id="title">Welcome to my coding quiz!</h2>
+      <p>Try to answer the following coding questions within the 
+        time limit. Wrong answers will deduct from your remaining 
+        time, and you will be able to save your final score at the 
+        end.</p>
+      <button id='start-btn' >Start Quiz</button>
+    </div>
+    <div id = 'quiz-div'>
+      <h2 id=''>Quiz placeholder</h2>
+      <p></p>
+      <button id='but-1'>1holder</button>
+      <button id='but-2'>2holder</button>
+      <button id='but-3'>3holder</button>
+      <button id='but-4'>4holder</button>
+      <div id='answer-slot'>answer result</div>
+    </div>
+    <div id='quiz-end'>
+      <h2>Quiz Over!</h2>
+      <h3>Your final Score was: <span id='time-left'>0</span></h3>
+      <form id='initial-form'>
+        <label for='initials-text'>Save your score by entering 
+          your initials and pressing enter.</label>
+        <input type='text' placeholder='Enter you initials here...' id='initials-text'/>
+      </form>
+    </div>
+    <div id = 'score-div'>
+      <section>
+        <h4>Highscores</h4>
+        <ol id="scores"></ol>
+        <button id='welcome-button'>Return to Welcome</button>
+      </section>
+    </div>
   </div>
   <script src= "script.js"></script>
 </body>
