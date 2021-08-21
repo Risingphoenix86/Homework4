@@ -4,3 +4,4 @@ a timer was implemented as well, to limit the amount of time someone could spend
 The site is delpoyed to: https://risingphoenix86.github.io/Homework4/
 
 a preview of the page:
+![image](https://user-images.githubusercontent.com/7930889/130335467-eb424c8b-7d85-4106-af0d-e64ffa95f2f7.png)
