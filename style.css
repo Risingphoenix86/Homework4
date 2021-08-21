@@ -1,1 +1,12 @@
+button {
+    background-color: purple;
+    color: white;
 
+}
+.txtPurp {
+    color: purple;
+}
+button #score-link {
+    color: purple;
+    background-color: white;
+}

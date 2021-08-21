@@ -5,36 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Coding Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css" />
     
   </head>
 <body id="root">
-  <header>
-    <button id="score-link">View Highscores</button>
-    <div id="timer">Time Left: <span id='time-left'>0</span></div>  
+  <header class='container-fluid '>
+    <div class='d-flex align-items-center mt-2 justify-content-between'>
+      <button class='rounded' id="score-link">View Highscores</button>
+      <h5 class='txtPurp tex' id="timer">Time Left: <span id='time-left'>60</span></div>
+      </h5>  
   </header>
 
-  <div id="main-container">
-    <div id = 'welcome-div'>
+  <div class='container my-5' id="main-container">
+    <div class='row' id = 'welcome-div'>
       <h2 id="title">Welcome to my coding quiz!</h2>
       <p>Try to answer the following coding questions within the 
         time limit. Wrong answers will deduct from your remaining 
         time, and you will be able to save your final score at the 
         end.</p>
-      <button id='start-btn' >Start Quiz</button>
+      <button class='rounded' id='start-btn' >Start Quiz</button>
     </div>
-    <div id = 'quiz-div'>
-      <h2 id=''>Quiz placeholder</h2>
+    <div id='quiz-div'>
+      <h2 >Quiz placeholder</h2>
       <p></p>
-      <button id='but-1'>1holder</button>
-      <button id='but-2'>2holder</button>
-      <button id='but-3'>3holder</button>
-      <button id='but-4'>4holder</button>
-      <div id='answer-slot'>answer result</div>
+      <button class='rounded' id='btn-1'>1holder</button>
+      <button class='rounded' id='btn-2'>2holder</button>
+      <button class='rounded' id='btn-3'>3holder</button>
+      <button class='rounded' id='btn-4'>4holder</button>
     </div>
     <div id='quiz-end'>
       <h2>Quiz Over!</h2>
-      <h3>Your final Score was: <span id='time-left'>0</span></h3>
+      <h3>Your final Score was: <span id='final-score'>0</span></h3>
       <form id='initial-form'>
         <label for='initials-text'>Save your score by entering 
           your initials and pressing enter.</label>
@@ -45,9 +47,12 @@
       <section>
         <h4>Highscores</h4>
         <ol id="scores"></ol>
-        <button id='welcome-button'>Return to Welcome</button>
+        <button class='rounded' id='welcome-button'>Return to Welcome</button>
       </section>
     </div>
   </div>
   <script src= "script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>

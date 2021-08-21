@@ -10,13 +10,15 @@ var quizDiv = document.getElementById('quiz-div');
 var scoreDiv = document.getElementById('score-div');
 var quizEndDiv = document.getElementById('quiz-end');
 var scoreList = document.getElementById('scores');
-var timerLeft = document.getElementById('time-left');
+var timeRemain = document.getElementById('time-left');
+var finalScore = document.getElementById('final-score');
 
 var timer;
-var timeLeft = 60;
+var timeLeft;
 var question = 0;
 var answer = 0;
 var ansResult;
+var playerScore;
 var miniTime;
 var miniTimeCount = 5;
 var scores = [];
@@ -64,6 +66,7 @@ function startQuiz() {
     
     question = 0;
     timeLeft = 60;
+    quizTimer();
     nextQuestion();
 }
 
@@ -78,7 +81,7 @@ function nextQuestion() {
             quizDiv.children[4].textContent = "3. Boolean";
             quizDiv.children[5].textContent = "4. Number";
             answer = 'btn-3';
-            console.log('1');
+            //console.log('1');
             break;
         case 2:
             quizDiv.children[0].textContent = "Question 2:";
@@ -88,7 +91,7 @@ function nextQuestion() {
             quizDiv.children[4].textContent = "3. Position";
             quizDiv.children[5].textContent = "4. Point";
             answer = 'btn-2';
-            console.log('2');
+            //console.log('2');
             break;
         case 3:
             quizDiv.children[0].textContent = "Question 3:";
@@ -98,7 +101,7 @@ function nextQuestion() {
             quizDiv.children[4].textContent = "3. <>=";
             quizDiv.children[5].textContent = "4. !==";
             answer = 'btn-1';
-            console.log('3');
+            //console.log('3');
             break;
         case 4:
             quizDiv.children[0].textContent = "Question 4:";
@@ -108,7 +111,7 @@ function nextQuestion() {
             quizDiv.children[4].textContent = "3. Subtract 2";
             quizDiv.children[5].textContent = "4. Clear Value";
             answer = 'btn-2';
-            console.log('4');
+            //console.log('4');
             break;
         default:
             console.log('reached');
@@ -120,14 +123,18 @@ function nextQuestion() {
 function checkAnswer(val) {
     if (val === answer) {
         ansResult = true;
+        
         nextQuestion();
     } else {
         if ((timeLeft - 10) < 0 ) {
            timeLeft = 0; 
+           clearInterval(timer);
+           quizEnd();
         } else {
-            timeLeft - 10;
+            timeLeft -= 10;
         }
         ansResult = false;
+        
         nextQuestion();
     }
 }
@@ -135,7 +142,7 @@ function checkAnswer(val) {
 function quizTimer() {
     timer = setInterval(function() {
         timeLeft--;
-        timerLeft.textContent = timeLeft;
+        timeRemain.textContent = timeLeft;
         if (timeLeft === 0) {
             clearInterval(timer);
             quizEnd();
@@ -143,24 +150,12 @@ function quizTimer() {
     }, 1000);
 }
 
-function answerTimer() {
-    var answerDiv = document.getElementById('answer-slot');
-    miniTime = setInterval(function() {
-        miniTimeCount--;
-        if (ansResult) {
-            answerDiv.textContent = "Correct!";
-        } else {
-            answerDiv.textContent = "Wrong!";
-        }
-        if (miniTimeCount === 0 ) {
-            clearInterval;
-            answerDiv.textContent = '';
-        }
-    }, 1000);
-}
-
 function quizEnd() {
     clearContainer();
+    playerScore = timeLeft;
+    clearInterval(timer);
+    timeRemain.textContent = 60;
+    finalScore.textContent = playerScore;
     quizEndDiv.style.display = 'block';
 }
 
@@ -174,7 +169,7 @@ scoreForm.addEventListener("submit", function(event) {
     if (scoreInitial === '') {
         return;
     }
-    scores.push(scoreInitial + '- ' + timeLeft);
+    scores.push(scoreInitial + '- ' + playerScore);
     initialsText.value = '';
 
     storeScores();
